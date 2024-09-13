@@ -20,7 +20,7 @@ int main(){_
  
    ll n,k,l,r,m,ans=0,soma,atual,maxpipes;
    cin>>n>>k;
-   maxpipes=((k*k-k)/2)+1; 
+   maxpipes=((k*k-k)/2)+1;
    if(maxpipes<n){
        cout<<"-1";
        return 0;
@@ -57,10 +57,6 @@ int main(){_
     }
     else
        r=m-1;
-   }
-   if(spliters[atual]==false || soma+atual-1>n){
-    cout<<"-1";
-    return 0;
    }
    spliters[atual]=false;
    soma+=atual-1;
