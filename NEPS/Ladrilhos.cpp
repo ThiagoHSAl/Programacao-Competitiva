@@ -25,7 +25,7 @@ int h,l;
 vector<pair<int,int>> moves = {{1,0}, {-1,0}, {0,1}, {0,-1}};
  
 bool casa_valida(pair<int,int> casa) {
-    return casa.f >= 0 && casa.f <= h && casa.s >= 0 && casa.s <= l;
+    return casa.f >= 0 && casa.f < h && casa.s >= 0 && casa.s < l;
 }
  
 int bfs(pair<int,int> inicio) {
