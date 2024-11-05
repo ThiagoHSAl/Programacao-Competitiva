@@ -54,8 +54,7 @@ void bfs_fogo(vector<pair<int,int>> &focos){
             if(casa_valida({destino_x, destino_y})){
                     q.push({destino_x, destino_y});
                     vis[destino_x][destino_y] = true;
-                    tempo[destino_x][destino_y]=tempo[casa_atual.f][casa_atual.s]+1;
-                    
+                    tempo[destino_x][destino_y]=tempo[casa_atual.f][casa_atual.s]+1;                    
             }
         }
     }
@@ -69,12 +68,12 @@ int bfs_personagem (pair<int,int> inicio){
     vis[inicio.f][inicio.s]=true;
     tempo[inicio.f][inicio.s]=0;
 
-    while (!q.empty()) {
+    while (!q.empty()){
         pair<int,int> casa_atual = q.front();
         q.pop();
 
         if(saida({casa_atual.f, casa_atual.s})){
-            return tempo[casa_atual.f][casa_atual.s];
+            return tempo[casa_atual.f][casa_atual.s]+1;
         }       
  
         for (auto movimento : moves) {
@@ -95,10 +94,11 @@ int main() {_
     int t;
     cin>>t;
     while(t--){
-        cin>>l>>h;
         vector<pair<int,int>> focos;
         pair<int,int> inicio;
         int ans;
+     
+        cin>>l>>h;
         for (int i = 0; i < h; i++){
             for (int j = 0; j < l; j++){
                 cin>>grid[i][j];
@@ -110,11 +110,12 @@ int main() {_
                 }
             }
         }
+     
         bfs_fogo(focos);
         ans=bfs_personagem(inicio);
 
         if(ans != -1){
-            cout << ans+1 << endl;
+            cout << ans << endl;
         }
         else{
             cout << "IMPOSSIBLE" << endl;
