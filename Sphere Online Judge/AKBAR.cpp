@@ -35,18 +35,14 @@ int bfs(vector<int> soldiers, vector<int> &forca, vector<int> &protegido, vector
 
         for (auto protecao : g[vertice_atual]){
             forca[protecao]=forca[vertice_atual];
-            
             if(protegido[protecao] != protegido[vertice_atual]){
                 distancia[protecao] = distancia[vertice_atual]+1;
-
                 if(distancia[protecao] > forca[vertice_atual]){
                     break;
                 }
-
                 if(protegido[protecao] != -1){
                         return -1;
                 }
-
                 q.push(protecao);
                 protegido[protecao]=protegido[vertice_atual];
             }      
@@ -58,11 +54,11 @@ int bfs(vector<int> soldiers, vector<int> &forca, vector<int> &protegido, vector
 
  
 int main() {_
-    int t;
+    int t;     
     cin>>t;
+            
     while(t--){
         int n,r,m,ans;
-
         cin>>n>>r>>m;
 
         vector<int> forca(n, -1);
